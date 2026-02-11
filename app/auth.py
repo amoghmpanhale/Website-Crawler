@@ -79,12 +79,9 @@ def create_access_token(data: dict):
 
 async def get_current_user(token: str = Depends(oauth2_scheme)):
     '''
-    Docstring for get_current_user
-    
     :param token: Description
     :type token: str
     '''
-
     try:
         payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
     except JWTError:

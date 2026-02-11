@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from typing import Optional
 
 class UserCreate(BaseModel):
@@ -19,14 +19,14 @@ class CreateCollection(BaseModel):
     '''
     Pydantic model for creating a new collection. This model defines the expected structure of the data when creating a new collection, including the collection name.
     '''
-    name: str
+    name: str = Field(..., min_length=3, max_length=100, pattern=r'^[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9]$')
     description: Optional[str] = None
 
 class CollectionInfo(BaseModel):
     '''
     Pydantic model for collection information. This model defines the structure of the data when retrieving collection information, including the collection name and description.
     '''
-    name: str
+    name: str = Field(..., min_length=3, max_length=100, pattern=r'^[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9]$')
     description: Optional[str] = None
     document_count: int = 0
 
