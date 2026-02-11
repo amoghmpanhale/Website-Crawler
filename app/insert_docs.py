@@ -17,7 +17,7 @@ from urllib.parse import urlparse, urldefrag
 from xml.etree import ElementTree
 from crawl4ai import AsyncWebCrawler, BrowserConfig, CrawlerRunConfig, CacheMode, MemoryAdaptiveDispatcher
 import requests
-from utils import get_chroma_client, get_or_create_collection, add_documents_to_collection
+from app.utils import get_chroma_client, get_or_create_collection, add_documents_to_collection
 
 def smart_chunk_markdown(markdown: str, max_len: int = 1000) -> List[str]:
     """Hierarchically splits markdown by #, ##, ### headers, then by characters, to ensure all chunks < max_len."""
