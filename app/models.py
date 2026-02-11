@@ -30,6 +30,16 @@ class CollectionInfo(BaseModel):
     description: Optional[str] = None
     document_count: int = 0
 
+class CrawlRequest(BaseModel):
+    '''
+    Pydantic model for crawl request. This model defines the expected structure of the data when sending a crawl request, including the URL to crawl and optional parameters for crawling.
+    '''
+    urls : list[str] = Field(..., min_items=1)
+    collection_name: str = Field(..., min_length=3, max_length=100, pattern=r'^[a-zA-Z0-9][a-zA-Z0-9._-]*[a-zA-Z0-9]$')
+    chunk_size: Optional[int] = 1000
+    max_depth: Optional[int] = 3
+    max_concurrent: Optional[int] = 10
+
 class ChatRequest(BaseModel):
     '''
     Pydantic model for chat request. This model defines the expected structure of the data when sending a chat request, including the collection name and the user query.

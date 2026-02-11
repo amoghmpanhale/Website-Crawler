@@ -14,5 +14,7 @@ class Settings(BaseSettings):
     OLLAMA_MODEL: str = "llama3.1:8b" # Ollama model to use for generating responses
     CHROMA_DB_DIR: str = "./chroma_db" # Directory for ChromaDB storage
     EMBEDDING_MODEL: str = "all-MiniLM-L6-v2" # SentenceTransformer model for generating embeddings
+    CHUNK_SIZE: int = 1000 # Default chunk size for document processing
+    MAX_CRAWL_DEPTH: int = 3 # Default maximum crawl depth for recursive crawling
 
 settings = Settings()

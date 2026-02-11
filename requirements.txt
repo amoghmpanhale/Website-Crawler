@@ -10,3 +10,4 @@ sentence-transformers
 crawl4ai
 ollama
 httpx
+more_itertools
