@@ -12,6 +12,8 @@ class Settings(BaseSettings):
     ALGORITHM: str = "HS256" # Algorithm used for JWT token encoding
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30 # Token expiration time in minutes
     OLLAMA_MODEL: str = "llama3.1:8b" # Ollama model to use for generating responses
+    OPENAI_API_KEY: str  # loaded from .env
+    OPENAI_MODEL: str = "gpt-5-nano"
     CHROMA_DB_DIR: str = "./chroma_db" # Directory for ChromaDB storage
     EMBEDDING_MODEL: str = "all-MiniLM-L6-v2" # SentenceTransformer model for generating embeddings
     CHUNK_SIZE: int = 1000 # Default chunk size for document processing

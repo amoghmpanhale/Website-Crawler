@@ -5,6 +5,7 @@ from crawl4ai.utils import configure_windows_event_loop
 from app.routes import auth_routes
 from app.routes import collections
 from app.routes import crawl
+from app.routes import chat
 
 # crawl4ai function that configures windows to use ProactorEventLoop which is required for async subprocesses used in 
 # crawling. This should be called at the very start of the program before any async code runs. Otherwise it will use 
@@ -21,6 +22,9 @@ logger.info("collections loaded.")
 
 app.include_router(crawl.router)
 logger.info(f"crawl loaded.")
+
+app.include_router(chat.router)
+logger.info(f"chat loaded.")
 
 @app.get("/")
 async def root():
